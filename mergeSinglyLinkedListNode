@@ -1,0 +1,39 @@
+    // Complete the mergeLists function below.
+
+    /*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
+    static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        SinglyLinkedListNode sln = new SinglyLinkedListNode(0);
+    SinglyLinkedListNode head=sln;
+ 
+    SinglyLinkedListNode sln1=head1;
+    SinglyLinkedListNode sln2=head2;
+    while(sln1 !=null && sln2 !=null){
+        if(sln1.data < sln2.data){
+            head.next = sln1;
+            sln1 = sln1.next;
+        }else{
+            head.next = sln2;
+            sln2 = sln2.next;
+        }
+        head=head.next;
+    }
+ 
+    if(sln1!=null){
+        head.next = sln1;
+    }
+ 
+    if(sln2!=null){
+        head.next = sln2;
+    }
+ 
+    return sln.next;
+        
+    }
