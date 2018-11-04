@@ -1,0 +1,30 @@
+// Complete the removeDuplicates function below.
+
+    /*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
+    static SinglyLinkedListNode removeDuplicates(SinglyLinkedListNode head) {
+        
+        SinglyLinkedListNode current = head;
+        SinglyLinkedListNode temp;
+    if(head == null){
+        return null;
+    }
+    while(head.next != null){
+        if (head.data == head.next.data){
+            temp = head.next.next;
+            head.next = null;
+            head.next = temp;
+        }
+        else {
+            head = head.next;
+        }
+    }
+    return current;
+    }
